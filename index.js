@@ -1,12 +1,13 @@
 const express = require('express');
 const openai = require('openai');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 dotenv.config();
-
 const app = express();
 const port = process.env.PORT || 10000;
 
+app.use(cors({ origin: 'https://jee-prep-frontend.vercel.app' }));
 app.use(express.json());
 
 openai.apiKey = process.env.OPENAI_API_KEY;
